@@ -67,6 +67,12 @@
   cursor: pointer;
 }
 
+.error-login{
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
 .submit-login {
   width: 100%;
   height: 40px;
