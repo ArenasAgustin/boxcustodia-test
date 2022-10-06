@@ -88,8 +88,12 @@
 }
 
 .reset-password-login {
-  color: var(--color-rest-password);
+  color: var(--color-reset-password);
   text-decoration: none;
+}
+
+.reset-password-login:hover {
+  color: var(--color-reset-password-hover);
 }
 
 .extra-btn-login {

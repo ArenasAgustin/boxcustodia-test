@@ -47,7 +47,7 @@ const LoginForm = () => {
           Ingresar
         </button>
 
-        <a href="" className="reset-password-login">Olvidé mi contraseña</a>
+        <a href="" className="reset-password-login transition-slow">Olvidé mi contraseña</a>
       </div>
 
       <div className="extra-btn-login">
