@@ -23,7 +23,7 @@
 }
 
 .list-links-footer {
-  flex-direction: row;
+  flex-direction: row !important;
   list-style: none;
 }
 
