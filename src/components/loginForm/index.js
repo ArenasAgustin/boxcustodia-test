@@ -51,9 +51,9 @@ const LoginForm = () => {
       </div>
 
       <div className="extra-btn-login">
-        <button>Información comercial</button>
+        <button className="transition-slow-xs">Información comercial</button>
 
-        <button>¿Necesitás ayuda?</button>
+        <button className="transition-slow-xs">¿Necesitás ayuda?</button>
       </div>
     </form>
   );
