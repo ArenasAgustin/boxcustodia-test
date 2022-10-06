@@ -1,17 +1,23 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { useDispatch } from "react-redux";
-import { setToken } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getToken, setToken } from "../../redux/actions";
 import "./loginForm.css";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const errorTokenState = useSelector((state) => state.errorToken);
+  const tokenState = useSelector((state) => state.token);
 
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const [token, setToken] = useState(false);
 
   const handleShowPassword = () => setShowPassword((prev) => !prev);
 
@@ -22,20 +28,15 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const { data } = await axios.post(
-        "https://sbox-dev.boxcustodia.com/api-test/login",
-        {
-          userName: email,
-          password,
-        }
-      );
-
-      dispatch(setToken(data.body.token));
-    } catch (error) {
-      setError(true);
-    }
+    dispatch(getToken({ userName: email, password }));
+    setToken(true);
   };
+
+  useEffect(() => setError(errorTokenState), [errorTokenState]);
+
+  useEffect(() => {
+    if(tokenState && token) navigate("/documents");
+  }, [tokenState]);
 
   return (
     <form className="d-center-center-column form-login" onSubmit={handleSubmit}>
