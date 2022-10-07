@@ -1,9 +1,7 @@
 import axios from "axios";
 import {
-  ERROR_DOCUMENT,
   ERROR_DOCUMENTS,
   ERROR_TOKEN,
-  GET_DOCUMENT,
   GET_DOCUMENTS,
   GET_TOKEN,
   SET_TOKEN,
@@ -36,7 +34,7 @@ export const getDocuments =
     try {
       const { data } = await axios.get(
         `https://sbox-dev.boxcustodia.com/api-test/documents?name=${name}`,
-        { headers: { Token: "r2n2naaavgh4i0am98gq9" /* token */ } }
+        { headers: { Token: token } }
       );
 
       dispatch({ type: GET_DOCUMENTS, payload: data.body.documents });
@@ -44,25 +42,6 @@ export const getDocuments =
       return "success";
     } catch (_) {
       dispatch({ type: ERROR_DOCUMENTS });
-
-      return "error";
-    }
-  };
-
-export const getDocument =
-  ({ token, id }) =>
-  async (dispatch) => {
-    try {
-      const { data } = await axios.get(
-        `https://sbox-dev.boxcustodia.com/api-test/document/${id}`,
-        { headers: { Token: "r2n2naaavgh4i0am98gq9" /* token */ } }
-      );
-
-      dispatch({ type: GET_DOCUMENT, payload: data });
-
-      return "success";
-    } catch (error) {
-      dispatch({ type: ERROR_DOCUMENT });
 
       return "error";
     }

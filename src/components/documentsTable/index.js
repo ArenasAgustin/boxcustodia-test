@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./documentsTable.css";
 
 const DocumentsTable = ({ handleGetDocument }) => {
@@ -62,7 +63,8 @@ const DocumentsTable = ({ handleGetDocument }) => {
           ) : (
             <tr>
               <td colSpan="7" className="text-center-important">
-                No hay documentos para mostrar
+                No hay documentos para mostrar, por favor ingrese con su usuario
+                y contraseña <Link to="/login">aquí</Link>
               </td>
             </tr>
           )}

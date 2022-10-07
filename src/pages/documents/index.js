@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import DocumentById from "../../components/documentById";
 import DocumentsTable from "../../components/documentsTable";
 import SearchBar from "../../components/searchBar";
-import { getDocument, getDocuments } from "../../redux/actions";
+import { getDocuments } from "../../redux/actions";
 import "./documents.css";
 
 const Documents = () => {
@@ -19,14 +19,12 @@ const Documents = () => {
 
   const handleGetDocument = (id) => {
     handleOpenModal();
-
-    dispatch(getDocument({ token, id }));
-  }
+  };
 
   useEffect(() => setToken(tokenState), [tokenState]);
 
   useEffect(() => {
-    if (/* token */ true) {
+    if (token) {
       dispatch(getDocuments({ token }));
     }
   }, [token]);

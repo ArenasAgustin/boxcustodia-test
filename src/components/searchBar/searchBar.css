@@ -47,5 +47,5 @@
 }
 
 .container-search {
-  flex-wrap: nowrap;
+  flex-wrap: nowrap !important;
 }
