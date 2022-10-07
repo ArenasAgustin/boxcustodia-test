@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import DocumentById from "../../components/documentById";
 import DocumentsTable from "../../components/documentsTable";
 import SearchBar from "../../components/searchBar";
-import { getDocuments } from "../../redux/actions";
+import { getDocument, getDocuments } from "../../redux/actions";
 import setPath from "../../utils";
 import "./documents.css";
 
@@ -35,6 +35,8 @@ const Documents = () => {
   };
   const handleGetDocument = (id) => {
     handleOpenModal();
+
+    dispatch(getDocument({ id, token }));
 
     setPath(id);
   };

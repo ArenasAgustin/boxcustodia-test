@@ -1,4 +1,4 @@
-import PdfViewer from "../pdfViewer";
+import PdfViewer from "../reactPdf";
 import "./documentById.css";
 
 const DocumentById = ({ handleCloseModal }) => {

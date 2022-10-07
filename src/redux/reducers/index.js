@@ -1,6 +1,8 @@
 import {
+  ERROR_DOCUMENT,
   ERROR_DOCUMENTS,
   ERROR_TOKEN,
+  GET_DOCUMENT,
   GET_DOCUMENTS,
   GET_TOKEN,
   SET_TOKEN,
@@ -11,7 +13,7 @@ const initalState = {
   errorToken: null,
   documents: [],
   errorDocuments: null,
-  document: [],
+  document: null,
   errorDocument: null,
 };
 
@@ -50,6 +52,20 @@ export const rootReducer = (state = initalState, { type, payload }) => {
         ...state,
         documents: [],
         errorDocuments: true,
+      };
+
+      case GET_DOCUMENT:
+      return {
+        ...state,
+        document: payload,
+        errorDocument: false,
+      };
+
+    case ERROR_DOCUMENT:
+      return {
+        ...state,
+        document: false,
+        errorDocument: true,
       };
 
     default:

@@ -52,17 +52,20 @@ export default function PdfViewer() {
    * useEffect to display the pdf
    */
   useEffect(() => {
-    const loadingTask = pdfjsLib.getDocument({
-      url: `https://sbox-dev.boxcustodia.com/api-test/document/${id}`,
-      httpHeaders: { headers: { Token: token } },
-      withCredentials: true,
-    });
+    console.log(id);
+    if (id) {
+      const loadingTask = pdfjsLib.getDocument({
+        url: `https://sbox-dev.boxcustodia.com/api-test/document/${id}`,
+        httpHeaders: { headers: { Token: token } },
+        withCredentials: true,
+      });
 
-    loadingTask.promise.then(
-      (loadedPdf) => setPdfRef(loadedPdf),
-      (reason) => console.error(reason)
-    );
-  }, []);
+      loadingTask.promise.then(
+        (loadedPdf) => setPdfRef(loadedPdf),
+        (reason) => console.error(reason)
+      );
+    }
+  }, [id, token]);
 
   return <canvas ref={canvasRef}></canvas>;
 }
