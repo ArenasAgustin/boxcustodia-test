@@ -10,6 +10,10 @@
   height: 130px;
 }
 
+.logo-footer-link {
+  z-index: 2;
+}
+
 .logo-footer {
   width: 130px;
   height: auto;
@@ -23,11 +27,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
+  z-index: 1;
 }
 
 .list-links-footer {
   flex-direction: row !important;
   list-style: none;
+  z-index: 2;
 }
 
 .link-footer {

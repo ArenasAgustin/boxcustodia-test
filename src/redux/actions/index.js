@@ -7,6 +7,9 @@ import {
   SET_TOKEN,
 } from "../constants";
 
+/*
+ * Fuctions to get the token
+ */
 export const getToken =
   ({ userName, password }) =>
   async (dispatch) => {
@@ -26,8 +29,14 @@ export const getToken =
     }
   };
 
+/*
+ * Fuctions to set the token
+ */
 export const setToken = (token) => ({ type: SET_TOKEN, payload: token });
 
+/*
+ * Fuctions to get the documents
+ */
 export const getDocuments =
   ({ token, name = "" }) =>
   async (dispatch) => {

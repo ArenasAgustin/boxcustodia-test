@@ -5,14 +5,19 @@ import { Link } from "react-router-dom";
 import "./documentsTable.css";
 
 const DocumentsTable = ({ handleGetDocument }) => {
-  const dispatch = useDispatch();
-
+  /*
+   * Initialize global state variables
+   */
   const documentsState = useSelector((state) => state.documents);
-  const tokenState = useSelector((state) => state.token);
 
+  /*
+   * Initialize state variables
+   */
   const [documents, setDocuments] = useState([]);
-  const [token, setToken] = useState("");
 
+  /*
+   * Parse date to DD/MM/YYYY format
+   */
   const parseDate = (date) => {
     const parsedDate = new Date(date);
 
@@ -23,8 +28,10 @@ const DocumentsTable = ({ handleGetDocument }) => {
     return `${day}/${month}/${year}`;
   };
 
+  /*
+   * useEffect to handle documents state changes
+   */
   useEffect(() => setDocuments(documentsState), [documentsState]);
-  useEffect(() => setToken(tokenState), [tokenState]);
 
   return (
     <div className="d-center-center-column container-table">

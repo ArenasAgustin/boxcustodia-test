@@ -8,21 +8,38 @@ import { getDocuments } from "../../redux/actions";
 import "./documents.css";
 
 const Documents = () => {
+  /*
+   * Initialize dispatch
+   */
   const dispatch = useDispatch();
 
+  /*
+   * Initialize global state variables
+   */
   const tokenState = useSelector((state) => state.token);
 
+  /*
+   * Initialize state variables
+   */
   const [token, setToken] = useState("");
   const [openModal, setOpenModal] = useState(false);
 
+  /*
+   * Functions to handle state changes
+   */
   const handleOpenModal = () => setOpenModal((prev) => !prev);
-
   const handleGetDocument = (id) => {
     handleOpenModal();
   };
 
+  /*
+   * useEffect to handle token state changes
+   */
   useEffect(() => setToken(tokenState), [tokenState]);
 
+  /*
+   * useEffect to get documents
+   */
   useEffect(() => {
     if (token) {
       dispatch(getDocuments({ token }));

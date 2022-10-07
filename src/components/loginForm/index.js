@@ -7,24 +7,33 @@ import { getToken, setToken } from "../../redux/actions";
 import "./loginForm.css";
 
 const LoginForm = () => {
+  /*
+   * Initialize dispatch, and navigate
+   */
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  /*
+   * Initialize global state variables
+   */
   const errorTokenState = useSelector((state) => state.errorToken);
   const tokenState = useSelector((state) => state.token);
 
+  /*
+   * Initialize state variables
+   */
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [token, setToken] = useState(false);
 
+  /*
+   * Functions to handle state changes
+   */
   const handleShowPassword = () => setShowPassword((prev) => !prev);
-
   const handleSetEmail = (e) => setEmail(e.target.value);
-
   const handleSetPassword = (e) => setPassword(e.target.value);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -32,10 +41,16 @@ const LoginForm = () => {
     setToken(true);
   };
 
+  /*
+   * useEffect to handle token state changes
+   */
   useEffect(() => setError(errorTokenState), [errorTokenState]);
 
+  /*
+   * useEffect to navigate to documents page if token is set
+   */
   useEffect(() => {
-    if(tokenState && token) navigate("/documents");
+    if (tokenState && token) navigate("/documents");
   }, [tokenState]);
 
   return (
