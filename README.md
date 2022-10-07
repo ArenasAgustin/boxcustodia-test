@@ -14,5 +14,4 @@ Open [http://localhost:3000/login](http://localhost:3000/login) to view it in yo
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### Loggin 
 
