@@ -1,8 +1,20 @@
-import { ERROR_TOKEN, GET_TOKEN, SET_TOKEN } from "../constants";
+import {
+  ERROR_DOCUMENT,
+  ERROR_DOCUMENTS,
+  ERROR_TOKEN,
+  GET_DOCUMENT,
+  GET_DOCUMENTS,
+  GET_TOKEN,
+  SET_TOKEN,
+} from "../constants";
 
 const initalState = {
-  token: null,
+  token: '',
   errorToken: null,
+  documents: [],
+  errorDocuments: null,
+  document: [],
+  errorDocument: null,
 };
 
 export const rootReducer = (state = initalState, { type, payload }) => {
@@ -26,6 +38,34 @@ export const rootReducer = (state = initalState, { type, payload }) => {
         ...state,
         token: "",
         errorToken: true,
+      };
+
+    case GET_DOCUMENTS:
+      return {
+        ...state,
+        documents: payload,
+        errorDocuments: false,
+      };
+
+    case ERROR_DOCUMENTS:
+      return {
+        ...state,
+        documents: [],
+        errorDocuments: true,
+      };
+
+    case GET_DOCUMENT:
+      return {
+        ...state,
+        document: payload,
+        errorDocument: false,
+      };
+
+    case ERROR_DOCUMENT:
+      return {
+        ...state,
+        document: {},
+        errorDocument: true,
       };
 
     default:

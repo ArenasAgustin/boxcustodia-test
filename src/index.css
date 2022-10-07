@@ -9,6 +9,11 @@
 
   --color-footer: var(--color-login);
   --color-footer-border: var(--color-login-border);
+
+  --color-documents: var(--color-login);
+  --color-documents-background: #eee7f7;
+  --color-documents-primary: #3f51b5;
+  --color-documents-secondary: #bfbfbf;
 }
 
 * {

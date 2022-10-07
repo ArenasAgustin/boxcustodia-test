@@ -36,10 +36,10 @@ export const getDocuments =
     try {
       const { data } = await axios.get(
         `https://sbox-dev.boxcustodia.com/api-test/documents?name=${name}`,
-        { headers: { Authorization: `Bearer ${token}` } }
+        { headers: { Token: "r2n2naaavgh4i0am98gq9" /* token */ } }
       );
 
-      dispatch({ type: GET_DOCUMENTS, payload: data.body });
+      dispatch({ type: GET_DOCUMENTS, payload: data.body.documents });
 
       return "success";
     } catch (_) {

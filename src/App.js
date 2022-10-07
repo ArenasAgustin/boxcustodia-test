@@ -12,9 +12,7 @@ function App() {
         <Route path="/documents/" element={<Documents />} />
       </Routes>
 
-      <div>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

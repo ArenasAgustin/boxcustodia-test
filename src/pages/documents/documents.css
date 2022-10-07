@@ -1,0 +1,23 @@
+.documents {
+  background-color: var(--color-documents-background);
+  height: 100vh;
+  width: 100vw;
+}
+
+.nav-documents {
+  background-color: #fff;
+  width: calc(100% - 4rem);
+  height: 60px;
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.logo-documents {
+  width: 150px;
+  height: auto;
+  display: block;
+}
+
+.documents-container{
+  padding: 2rem;
+}

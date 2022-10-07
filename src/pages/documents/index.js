@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import DocumentsTable from "../../components/documentsTable";
 import { getDocuments } from "../../redux/actions";
 import "./documents.css";
 
@@ -13,12 +15,26 @@ const Documents = () => {
   useEffect(() => setToken(tokenState), [tokenState]);
 
   useEffect(() => {
-    if(token){
-        dispatch(getDocuments(token));
+    if (/* token */true) {
+      dispatch(getDocuments({ token }));
     }
-    }, [token]);
+  }, [token]);
 
-  return <div></div>;
+  return (
+    <div className="documents">
+      <nav className="nav-documents">
+        <Link to="/login">
+          <img src="img/logo.jpg" alt="JornalYa" className="logo-documents" />
+        </Link>
+      </nav>
+
+      <div className="d-center-center-column documents-container">
+        <div></div>
+
+        <DocumentsTable />
+      </div>
+    </div>
+  );
 };
 
 export default Documents;
