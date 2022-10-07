@@ -46,20 +46,6 @@
   cursor: pointer;
 }
 
-.container-search{
+.container-search {
   flex-wrap: nowrap;
-}
-
-@media (min-width: 768px) {
-  .login {
-    width: calc(100vw - 300px);
-    padding: 0 150px;
-  }
-}
-
-@media (min-width: 992px) {
-  .login {
-    width: calc(100vw - 300px);
-    padding: 0 150px;
-  }
 }
