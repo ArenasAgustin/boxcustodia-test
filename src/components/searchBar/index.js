@@ -8,7 +8,7 @@ const SearchBar = () => {
         <FaArrowLeft /> Mi panel / <span>Firmar documentos</span>
       </h1>
 
-      <form className="d-between-center-row ">
+      <form className="d-between-center-row container-search">
         <input type="text" placeholder="Nombre" className="input-search" />
 
         <button type="submit" className="btn-search">

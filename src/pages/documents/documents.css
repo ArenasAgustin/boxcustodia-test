@@ -1,7 +1,8 @@
 .documents {
   background-color: var(--color-documents-background);
-  height: 100vh;
+  height: 100%;
   width: 100vw;
+  flex: 1;
 }
 
 .nav-documents {
@@ -18,6 +19,6 @@
   display: block;
 }
 
-.documents-container{
-  padding: 2rem;
+.documents-container {
+  padding: 2rem 1rem;
 }

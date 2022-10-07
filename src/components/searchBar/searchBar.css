@@ -8,6 +8,7 @@
 
 .title-documents {
   flex-direction: row !important;
+  flex-wrap: wrap;
   color: var(--color-documents);
 }
 
@@ -42,4 +43,23 @@
   cursor: pointer;
   font-size: 1rem;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+.container-search{
+  flex-wrap: nowrap;
+}
+
+@media (min-width: 768px) {
+  .login {
+    width: calc(100vw - 300px);
+    padding: 0 150px;
+  }
+}
+
+@media (min-width: 992px) {
+  .login {
+    width: calc(100vw - 300px);
+    padding: 0 150px;
+  }
 }

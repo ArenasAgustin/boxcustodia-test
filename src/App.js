@@ -2,17 +2,22 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./components/footer";
 import Documents from "./pages/documents";
 import Login from "./pages/login";
+import "./App.css";
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/login" element={<Login />} />
+    <div className="container-app">
+      <div className="container-pages">
+        <Routes>
+          <Route path="/login" element={<Login />} />
 
-        <Route path="/documents/" element={<Documents />} />
-      </Routes>
+          <Route path="/documents/" element={<Documents />} />
+        </Routes>
+      </div>
 
-      <Footer />
+      <div className="container-footer">
+        <Footer />
+      </div>
     </div>
   );
 }

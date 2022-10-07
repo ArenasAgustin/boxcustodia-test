@@ -26,36 +26,38 @@ const DocumentsTable = () => {
   useEffect(() => setToken(tokenState), [tokenState]);
 
   return (
-    <table className="documents-table text-center">
-      <thead>
-        <tr>
-          <th>Colaborador</th>
-          <th>Cuil</th>
-          <th>Nombre documento</th>
-          <th>Periodo</th>
-          <th>Fecha creación</th>
-          <th>Fecha asignación</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {documents.map((document) => (
-          <tr key={document.id}>
-            <td>{document.attributes.ownerFullName}</td>
-            <td>{document.attributes.ownerCuil}</td>
-            <td>{document.attributes.name}</td>
-            <td>{document.attributes.period}</td>
-            <td>{parseDate(document.attributes.creationDate)}</td>
-            <td>{parseDate(document.attributes.assignmentDate)}</td>
-            <td>
-              <button className="see-documents">
-                <FaSearch />
-              </button>
-            </td>
+    <div className="d-center-center-column container-table">
+      <table className="documents-table text-center">
+        <thead>
+          <tr>
+            <th>Colaborador</th>
+            <th>Cuil</th>
+            <th>Nombre documento</th>
+            <th>Periodo</th>
+            <th>Fecha creación</th>
+            <th>Fecha asignación</th>
+            <th>Acciones</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {documents.map((document) => (
+            <tr key={document.id}>
+              <td>{document.attributes.ownerFullName}</td>
+              <td>{document.attributes.ownerCuil}</td>
+              <td>{document.attributes.name}</td>
+              <td>{document.attributes.period}</td>
+              <td>{parseDate(document.attributes.creationDate)}</td>
+              <td>{parseDate(document.attributes.assignmentDate)}</td>
+              <td>
+                <button className="see-documents">
+                  <FaSearch />
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

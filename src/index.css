@@ -1,3 +1,5 @@
+@import "./styles/styles.css";
+
 :root {
   --color-login: #717171;
   --color-login-submit-hover: #ebebeb;

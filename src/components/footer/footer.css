@@ -1,6 +1,5 @@
 .footer-container {
-  position: fixed;
-  bottom: 0;
+  position: relative;
   width: calc(100% - 4rem);
   height: 60px;
   padding: 0.5rem 2rem;
