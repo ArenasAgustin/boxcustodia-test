@@ -29,6 +29,10 @@
   text-align: center;
 }
 
+.text-center-important {
+  text-align: center !important;
+}
+
 .text-start {
   text-align: start;
 }

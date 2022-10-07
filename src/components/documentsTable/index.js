@@ -40,21 +40,27 @@ const DocumentsTable = () => {
           </tr>
         </thead>
         <tbody>
-          {documents.map((document) => (
-            <tr key={document.id}>
-              <td>{document.attributes.ownerFullName}</td>
-              <td>{document.attributes.ownerCuil}</td>
-              <td>{document.attributes.name}</td>
-              <td>{document.attributes.period}</td>
-              <td>{parseDate(document.attributes.creationDate)}</td>
-              <td>{parseDate(document.attributes.assignmentDate)}</td>
-              <td>
-                <button className="see-documents">
-                  <FaSearch />
-                </button>
-              </td>
+          {documents.length ? (
+            documents.map((document) => (
+              <tr key={document.id}>
+                <td>{document.attributes.ownerFullName}</td>
+                <td>{document.attributes.ownerCuil}</td>
+                <td>{document.attributes.name}</td>
+                <td>{document.attributes.period}</td>
+                <td>{parseDate(document.attributes.creationDate)}</td>
+                <td>{parseDate(document.attributes.assignmentDate)}</td>
+                <td>
+                  <button className="see-documents">
+                    <FaSearch />
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="7" className="text-center-important">No hay documentos para mostrar</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>
