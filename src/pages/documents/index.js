@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import DocumentsTable from "../../components/documentsTable";
+import SearchBar from "../../components/searchBar";
 import { getDocuments } from "../../redux/actions";
 import "./documents.css";
 
@@ -15,7 +16,7 @@ const Documents = () => {
   useEffect(() => setToken(tokenState), [tokenState]);
 
   useEffect(() => {
-    if (/* token */true) {
+    if (/* token */ true) {
       dispatch(getDocuments({ token }));
     }
   }, [token]);
@@ -29,7 +30,7 @@ const Documents = () => {
       </nav>
 
       <div className="d-center-center-column documents-container">
-        <div></div>
+        <SearchBar />
 
         <DocumentsTable />
       </div>
