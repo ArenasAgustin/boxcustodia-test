@@ -1,14 +1,14 @@
 import PdfViewer from "../pdfViewer";
 import "./documentById.css";
 
-const DocumentById = ({ handleOpenModal }) => {
+const DocumentById = ({ handleCloseModal }) => {
   return (
     <div className="container-modal">
       <div className="modal d-center-center-column">
         <div className="header-modal d-between-center-row">
           <h1 className="title-modal">Recibos de sueldo</h1>
 
-          <button className="close-modal" onClick={handleOpenModal}>
+          <button className="close-modal" onClick={handleCloseModal}>
             Cerrar
           </button>
         </div>

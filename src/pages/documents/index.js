@@ -5,6 +5,7 @@ import DocumentById from "../../components/documentById";
 import DocumentsTable from "../../components/documentsTable";
 import SearchBar from "../../components/searchBar";
 import { getDocuments } from "../../redux/actions";
+import setPath from "../../utils";
 import "./documents.css";
 
 const Documents = () => {
@@ -27,9 +28,15 @@ const Documents = () => {
   /*
    * Functions to handle state changes
    */
-  const handleOpenModal = () => setOpenModal((prev) => !prev);
+  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setPath();
+  };
   const handleGetDocument = (id) => {
     handleOpenModal();
+
+    setPath(id);
   };
 
   /*
@@ -59,7 +66,9 @@ const Documents = () => {
 
         <DocumentsTable handleGetDocument={handleGetDocument} />
 
-        {openModal ? <DocumentById handleOpenModal={handleOpenModal} /> : null}
+        {openModal ? (
+          <DocumentById handleCloseModal={handleCloseModal} />
+        ) : null}
       </div>
     </div>
   );
