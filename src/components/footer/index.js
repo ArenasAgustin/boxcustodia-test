@@ -4,7 +4,7 @@ import "./footer.css";
 const Footer = () => {
   return (
     <div className="d-between-center-row footer-container">
-      <Link to="">
+      <Link to="/login">
         <img src="img/logo.jpg" alt="JornalYa" className="logo-footer" />
       </Link>
 
