@@ -3,6 +3,8 @@
   height: 100%;
   width: 100vw;
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-documents {
@@ -21,4 +23,7 @@
 
 .documents-container {
   padding: 2rem 1rem;
+  height: calc(100% - 2rem);
+  position: relative;
+  flex: 1;
 }

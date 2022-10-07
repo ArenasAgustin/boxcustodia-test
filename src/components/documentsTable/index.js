@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import "./documentsTable.css";
 
-const DocumentsTable = () => {
+const DocumentsTable = ({ handleGetDocument }) => {
   const dispatch = useDispatch();
 
   const documentsState = useSelector((state) => state.documents);
@@ -41,16 +41,19 @@ const DocumentsTable = () => {
         </thead>
         <tbody>
           {documents.length ? (
-            documents.map((document) => (
-              <tr key={document.id}>
-                <td>{document.attributes.ownerFullName}</td>
-                <td>{document.attributes.ownerCuil}</td>
-                <td>{document.attributes.name}</td>
-                <td>{document.attributes.period}</td>
-                <td>{parseDate(document.attributes.creationDate)}</td>
-                <td>{parseDate(document.attributes.assignmentDate)}</td>
+            documents.map(({ id, attributes }) => (
+              <tr key={id}>
+                <td>{attributes.ownerFullName}</td>
+                <td>{attributes.ownerCuil}</td>
+                <td>{attributes.name}</td>
+                <td>{attributes.period}</td>
+                <td>{parseDate(attributes.creationDate)}</td>
+                <td>{parseDate(attributes.assignmentDate)}</td>
                 <td>
-                  <button className="see-documents">
+                  <button
+                    className="see-documents"
+                    onClick={() => handleGetDocument(id)}
+                  >
                     <FaSearch />
                   </button>
                 </td>
@@ -58,7 +61,9 @@ const DocumentsTable = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="7" className="text-center-important">No hay documentos para mostrar</td>
+              <td colSpan="7" className="text-center-important">
+                No hay documentos para mostrar
+              </td>
             </tr>
           )}
         </tbody>

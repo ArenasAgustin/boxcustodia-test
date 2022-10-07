@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import DocumentById from "../../components/documentById";
 import DocumentsTable from "../../components/documentsTable";
 import SearchBar from "../../components/searchBar";
-import { getDocuments } from "../../redux/actions";
+import { getDocument, getDocuments } from "../../redux/actions";
 import "./documents.css";
 
 const Documents = () => {
@@ -12,6 +13,15 @@ const Documents = () => {
   const tokenState = useSelector((state) => state.token);
 
   const [token, setToken] = useState("");
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenModal = () => setOpenModal((prev) => !prev);
+
+  const handleGetDocument = (id) => {
+    handleOpenModal();
+
+    dispatch(getDocument({ token, id }));
+  }
 
   useEffect(() => setToken(tokenState), [tokenState]);
 
@@ -32,7 +42,9 @@ const Documents = () => {
       <div className="d-center-center-column documents-container">
         <SearchBar />
 
-        <DocumentsTable />
+        <DocumentsTable handleGetDocument={handleGetDocument} />
+
+        {openModal ? <DocumentById handleOpenModal={handleOpenModal} /> : null}
       </div>
     </div>
   );
