@@ -65,15 +65,19 @@ export const getDocument =
   ({ token, id }) =>
   async (dispatch) => {
     try {
-      const { data } = await axios.get(
+      const response = await axios.get(
         `https://sbox-dev.boxcustodia.com/api-test/document/${id}`,
         { headers: { Token: token } }
       );
 
-      dispatch({ type: GET_DOCUMENT, payload: data });
+      dispatch({
+        type: GET_DOCUMENT,
+        payload: URL.createObjectURL(response.data),
+      });
 
       return "success";
     } catch (_) {
+      console.log(_);
       dispatch({ type: ERROR_DOCUMENT });
 
       return "error";

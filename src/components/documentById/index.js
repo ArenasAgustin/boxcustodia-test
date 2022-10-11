@@ -1,7 +1,16 @@
-import PdfViewer from "../reactPdf";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import "./documentById.css";
 
 const DocumentById = ({ handleCloseModal }) => {
+  const documentState = useSelector((state) => state.document);
+
+  const [document, setDocument] = useState(documentState);
+  const [newUrl, setNewUrl] = useState("");
+
+  useEffect(() => setDocument(documentState), [documentState]);
+  /* useEffect(() => setNewUrl(URL.createObjectURL(document)), [document]); */
+
   return (
     <div className="container-modal">
       <div className="modal d-center-center-column">
@@ -14,8 +23,14 @@ const DocumentById = ({ handleCloseModal }) => {
         </div>
 
         <div className="pdf-viewer">
-          <div className="canvas_container">
-            {typeof window !== "undefined" ? <PdfViewer /> : null}
+          <div className="canvas-container">
+            <iframe
+              src={newUrl}
+              /* srcDoc={document} */
+              title="Recibo de sueldo"
+              width="100%"
+              height="auto"
+            ></iframe>
           </div>
         </div>
       </div>
