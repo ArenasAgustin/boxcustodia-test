@@ -67,12 +67,14 @@ export const getDocument =
     try {
       const response = await axios.get(
         `https://sbox-dev.boxcustodia.com/api-test/document/${id}`,
-        { headers: { Token: token } }
+        { headers: { Token: token }, responseType: "blob" }
       );
+
+      console.log("response.data", typeof response.data, response.data);
 
       dispatch({
         type: GET_DOCUMENT,
-        payload: URL.createObjectURL(response.data),
+        payload: response.data,
       });
 
       return "success";

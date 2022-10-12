@@ -8,8 +8,9 @@ const DocumentById = ({ handleCloseModal }) => {
   const [document, setDocument] = useState(documentState);
   const [newUrl, setNewUrl] = useState("");
 
-  useEffect(() => setDocument(documentState), [documentState]);
-  /* useEffect(() => setNewUrl(URL.createObjectURL(document)), [document]); */
+  useEffect(() => {
+    setNewUrl(URL.createObjectURL(documentState));
+  }, [documentState]);
 
   return (
     <div className="container-modal">
@@ -29,7 +30,7 @@ const DocumentById = ({ handleCloseModal }) => {
               /* srcDoc={document} */
               title="Recibo de sueldo"
               width="100%"
-              height="auto"
+              height="100%"
             ></iframe>
           </div>
         </div>
