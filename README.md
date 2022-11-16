@@ -1,17 +1,5 @@
-# Getting Started with Create React App
+# Box | Custodia y gestión digital - Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start o yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000/login](http://localhost:3000/login) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Este proyecto es un test de aplicación de Box | Custodia y gestión digital, la app consta de un front que se comunica con una api para buscar documentos y mostrar los pdf.
 
 
