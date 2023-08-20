@@ -5,7 +5,6 @@ import "./documentById.css";
 const DocumentById = ({ handleCloseModal }) => {
   const documentState = useSelector((state) => state.document);
 
-  const [document, setDocument] = useState(documentState);
   const [newUrl, setNewUrl] = useState("");
 
   useEffect(() => {
@@ -27,7 +26,6 @@ const DocumentById = ({ handleCloseModal }) => {
           <div className="canvas-container">
             <iframe
               src={newUrl}
-              /* srcDoc={document} */
               title="Recibo de sueldo"
               width="100%"
               height="100%"

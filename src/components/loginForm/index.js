@@ -1,9 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getToken, setToken } from "../../redux/actions";
+import { getToken } from "../../redux/actions";
 import "./loginForm.css";
 
 const LoginForm = () => {
